@@ -3,7 +3,7 @@ const socketIO = require('socket.io');
 const path = require('path');
 const http = require('http');
 
-const { generateMessage } = require('./utils/message');
+const { generateMessage, generateLocationMessage } = require('./utils/message');
 
 const clientPath = path.join(__dirname, '../client');
 const port = process.env.PORT || 3000;
@@ -23,8 +23,15 @@ io.on('connection', (socket) => {
 
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'));
-  socket.on('createMessage', (message) => {
+  socket.on('createMessage', (message, callback) => {
     io.emit('newMessage', generateMessage(message.from, message.text));
+    callback('Message has been received');
+  });
+
+
+  socket.on('createLocation', function (location, callback) {
+    io.emit('newLocationMessage', generateLocationMessage('User1', location));
+    callback('Location sent Successfully');
   });
 
   socket.on('disconnect', () => {
