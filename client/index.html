@@ -3,91 +3,52 @@
 
 <head>
   <meta charset="utf-8">
+  <title>ChatOn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
-<body class="chat">
+<body>
 
-  <div class="chat__sidebar">
-    <h3>People <i class="fas fa-users fa-2x"></i></h3>
-    <div id="users"></div>
-  </div>
-
-
-
-  <div class="chat__main">
-    <!--Header Start Here-->
-    <nav class="navbar navbar-expand-md navbar-light" style="background-color: darkcyan">
-      <div class="container">
-        <i class="far fa-comments fa-3x"></i>
-        <a href="#" class="navbar-brand text-dark font-weight-bold mr-auto">
-          <h4>Chat On</h4>
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarId"><span
-            class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarId">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!--Header Ends Here-->
-
-    <ol id="messages" class="chat__messages"></ol>
-
-    <div class="chat__footer">
-      <form id="message-form">
-        <input name="message" type="text" placeholder="start typing here..." autofocus autocomplete="off" />
-        <button>Send</button>
-      </form>
-      <button id="send-location">Send location</button>
+  <!--Header Start Here-->
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary" style="border: 1px solid blue">
+    <div class="container">
+      <i class="far fa-comments fa-3x"></i>
+      <a href="#" class="navbar-brand text-dark font-weight-bold mr-auto">
+        <h4>Chat On</h4>
+      </a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Contact Us</a>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+  <div class="centered-form">
+    <div class="centered-form__form">
+      <form action="/chat.html">
+        <div class="form-field">
+          <h3>Join a Chat<h3>
+        </div>
+        <div class="form-field">
+          <label>Display name</label>
+          <input type="text" name="name" autofocus />
+        </div>
+        <div class="form-field">
+          <label>Room name</label>
+          <input type="text" name="room" />
+        </div>
+        <div class="form-field">
+          <button>Join</button>
+        </div>
+      </form>
+    </div>
+
   </div>
-
-
-  <script id="message-template" type="text/template">
-    <li class="message card">
-      <div class="message__title">
-        <h6>{{from}}</h6>
-        <span>{{time}}</span>
-      </div>
-      <div class="message__body">
-        <p>{{text}}</p>
-      </div>
-    </li>
-  </script>
-
-
-  <script id="location-template" type="text/template">
-    <li class="message card">
-      <div class="message__title">
-        <h6>{{from}}</h6>
-        <span>{{time}}</span>
-      </div>
-      <div class="message__body">
-        <p>
-          <a href="{{url}}" target="_blank"><i class="fas fa-map-marked fa-7x"></i></a>
-        </p>
-      </div>
-    </li>
-  </script>
-
-
-  <script src="libs/jquery-3.3.1.min.js"></script>
-  <script src="libs/mustache.js"></script>
-  <script src="libs/bootstrap.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="./js/index.js"></script>
-  <script src="libs/moment.js"></script>
 </body>
 
 </html>
