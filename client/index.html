@@ -3,19 +3,68 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
-<body>
-  <p>Welcome to the chat App</p>
-  <ol id="messages"></ol>
-  <form id="message-form">
-    <input type="text" name="message" placeholder="start typing here..." />
-    <button type="submit">Send</button>
-  </form>
-  <button type="button" id="send-location">Send Location</button>
+<body class="chat">
+
+  <div class="chat__sidebar">
+    <h3>People</h3>
+    <div id="users"></div>
+  </div>
+
+
+
+  <div class="chat__main">
+    <ol id="messages" class="chat__messages"></ol>
+
+    <div class="chat__footer">
+      <form id="message-form">
+        <input name="message" type="text" placeholder="start typing here..." autofocus autocomplete="off" />
+        <button>Send</button>
+      </form>
+      <button id="send-location">Send location</button>
+    </div>
+  </div>
+
+
+  <script id="message-template" type="text/template">
+    <li class="message card">
+      <div class="message__title">
+        <h6>{{from}}</h6>
+        <span>{{time}}</span>
+      </div>
+      <div class="message__body">
+        <p>{{text}}</p>
+      </div>
+    </li>
+  </script>
+
+
+  <script id="location-template" type="text/template">
+    <li class="message card">
+      <div class="message__title">
+        <h6>{{from}}</h6>
+        <span>{{time}}</span>
+      </div>
+      <div class="message__body">
+        <p>
+          <a href="{{url}}" target="_blank"><img src="./img/location.jpg" alt="location-image" class="img-responsive"></a>
+        </p>
+      </div>
+    </li>
+  </script>
+
+
   <script src="libs/jquery-3.3.1.min.js"></script>
+  <script src="libs/mustache.js"></script>
+  <script src="libs/bootstrap.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="./js/index.js"></script>
+  <script src="libs/moment.js"></script>
 </body>
 
 </html>

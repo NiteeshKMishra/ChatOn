@@ -25,13 +25,13 @@ io.on('connection', (socket) => {
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'));
   socket.on('createMessage', (message, callback) => {
     io.emit('newMessage', generateMessage(message.from, message.text));
-    callback('Message has been received');
+    callback();
   });
 
 
   socket.on('createLocation', function (location, callback) {
     io.emit('newLocationMessage', generateLocationMessage('User1', location));
-    callback('Location sent Successfully');
+    callback();
   });
 
   socket.on('disconnect', () => {
