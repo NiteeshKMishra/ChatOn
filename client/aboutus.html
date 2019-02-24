@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ChatOn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body style="background: cadetblue">
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary" style="border: 1px solid blue">
+    <div class="container">
+      <i class="far fa-comments fa-3x"></i>
+      <a href="#" class="navbar-brand text-dark font-weight-bold mr-auto">
+        <h4>Chat On</h4>
+      </a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <div class="jumbotron text-center mt-5" style="background: cadetblue">
+    <h4 class="display-4">Welcome to </h4>
+    <h4 class="display-4"><i class="far fa-comments fa-1x"></i>Chat On</h4>
+    <p class="lead">ChatOn is simple chat App developed using socket-io, node-js, express-js and jQuery. This App will
+      best view in Desktop. So go ahead join with your friends and start chit-chating</p>
+    <div class="bg-info" style="width:300px; display: inline-block; border: 2px solid black">
+      <form class="pl-3 pr-3" id="inviteForm">
+        <h4 class="display-5 text-center">Invite a friend</h4>
+        <input type="email" class="form-control" name="email" placeholder="Friend's email.." required>
+        <input type="text" class="form-control" name="room" placeholder="Room name.." required>
+        <button type="submit" class="btn btn-danger form-control my-2">Invite</button>
+      </form>
+    </div>
+    <footer class="blockquote-footer text-right">developed by Niteesh</footer>
+  </div>
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="libs/jquery-3.3.1.min.js"></script>
+  <script src="./js/aboutus.js"></script>
+</body>
+
+</html>

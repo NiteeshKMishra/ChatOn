@@ -3,6 +3,7 @@ const socketIO = require('socket.io');
 const path = require('path');
 const http = require('http');
 const { Users } = require('./utils/users');
+const { sendMail } = require('./utils/sendEmail');
 
 const { generateMessage, generateLocationMessage, validateMessage } = require('./utils/message');
 
@@ -21,6 +22,13 @@ io.on('connection', (socket) => {
   console.log("New Client Connected")
 
 
+  socket.on('sendMail', (data, callback) => {
+    sendMail(data.rcp, data.room).then((msg) => {
+      callback(msg)
+    }).catch((err) => {
+      callback(err);
+    });
+  });
 
   socket.on('join', (roomData, callback) => {
     if (validateMessage(roomData)) {
