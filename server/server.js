@@ -5,7 +5,7 @@ const http = require('http');
 const { Users } = require('./utils/users');
 const { sendMail } = require('./utils/sendEmail');
 
-const { generateMessage, generateLocationMessage, validateMessage } = require('./utils/message');
+const { generateMessage, generateLocationMessage } = require('./utils/message');
 
 const clientPath = path.join(__dirname, '../client');
 const port = process.env.PORT || 3000;
@@ -31,8 +31,10 @@ io.on('connection', (socket) => {
   });
 
   socket.on('join', (roomData, callback) => {
-    if (validateMessage(roomData)) {
-      callback('Room Data should not contain empty values or Special Characters');
+    userList = users.getUserList(roomData.room);
+
+    if (userList.includes(roomData.name)) {
+      callback('User is already present in the room. Please Enter a unique Display Name');
     }
     else {
       socket.join(roomData.room);

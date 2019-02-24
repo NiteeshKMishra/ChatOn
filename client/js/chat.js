@@ -39,9 +39,6 @@ socket.on('connect', () => {
       window.location.href = "/";
       alert(err);
     }
-    else {
-
-    }
   });
 });
 

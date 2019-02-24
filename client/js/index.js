@@ -15,3 +15,24 @@ function deparam(uri) {
 
 var data = deparam(window.location.search);
 jQuery('[name=room]').val(data.room);
+
+function validateMessage(message) {
+  var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+  if (message === '' || format.test(message)) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+jQuery('#join-form').on('submit', function (event) {
+  var userName = jQuery('[name=name]').val();
+  var roomName = jQuery('[name=room]').val();
+  if (validateMessage(userName) && validateMessage(roomName)) {
+    event.preventDefault();
+    jQuery('[name=name]').val('');
+    jQuery('[name=room]').val('');
+    alert('Room Name or User Name should not contain empty values or Special Characters')
+  }
+})

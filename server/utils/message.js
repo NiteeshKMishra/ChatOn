@@ -12,16 +12,7 @@ var generateLocationMessage = function (from, location) {
   }
 }
 
-var validateMessage = function (message) {
-  var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-  if (message.name.trim() === '' || message.room.trim() === '' || format.test(message.name) || format.test(message.room)) {
-    return true
-  }
-  else {
-    return false
-  }
-
-}
 
 
-module.exports = { generateMessage, generateLocationMessage, validateMessage };
+
+module.exports = { generateMessage, generateLocationMessage };
