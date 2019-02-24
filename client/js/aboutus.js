@@ -11,8 +11,7 @@ socket.on('connect', () => {
 
     var recepient = jQuery('[name=email]').val()
     var room = jQuery('[name=room]').val();
-    v
-    //var url = `https://nchaton.herokuapp.com/index.html?room=${room}`
+    var url = `https://nchaton.herokuapp.com/index.html?room=${room}`
 
     if (emailRegex.test(String(recepient).toLowerCase())) {
       socket.emit('sendMail', {
