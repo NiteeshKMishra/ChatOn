@@ -21,15 +21,14 @@
 
 
   <div class="chat__main">
-
     <ol id="messages" class="chat__messages"></ol>
 
     <div class="chat__footer">
       <form id="message-form">
         <input name="message" type="text" placeholder="start typing here..." autofocus autocomplete="off" />
-        <button>Send</button>
+        <button type="submit" id="send-text"><i class="fas fa-sign-in-alt fa-2x"></i></button>
+        <a><button type="button" id="send-location"><i class="fas fa-map-marker-alt fa-2x"></i></button></a>
       </form>
-      <button id="send-location">Send location</button>
     </div>
   </div>
 
@@ -66,8 +65,8 @@
   <script src="libs/mustache.js"></script>
   <script src="libs/bootstrap.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="./js/chat.js"></script>
   <script src="libs/moment.js"></script>
+  <script src="./js/chat.js"></script>
 </body>
 
 </html>
