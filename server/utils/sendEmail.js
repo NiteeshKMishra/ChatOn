@@ -7,8 +7,8 @@ function sendMail(rec, urlLink) {
       service: "gmail",
       host: "smtp.gmail.com",
       auth: {
-        user: "nchatonapp@gmail.com",
-        pass: "Niti@219"
+        user: "",
+        pass: ""
       }
     });
 
